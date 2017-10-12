@@ -406,6 +406,7 @@
 		44DA781C15B84C700094B94D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Samba Action Calculator/Samba Action Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Samba Action Calculator/Samba Action Calculator-Info.plist";
@@ -417,6 +418,7 @@
 		44DA781D15B84C700094B94D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Samba Action Calculator/Samba Action Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Samba Action Calculator/Samba Action Calculator-Info.plist";
