@@ -141,7 +141,7 @@
     else {
         // this is a Block
         action_type = 6;
-        int segIndex;
+        NSInteger segIndex;
         if (activeButton == 76) {
             segIndex = self.phoneSeg.selectedSegmentIndex;
         }
@@ -208,7 +208,7 @@
     }
     
     // is this the first Action? If so then add the player info.
-    int total_actions = [self.actionSequence.sequence count];
+    NSInteger total_actions = [self.actionSequence.sequence count];
     if(!total_actions) {
         SACAction *newPlayer = [[SACAction alloc] initWithValues:0
                                                          minRoll:0
@@ -221,7 +221,7 @@
     else {
         // not the first one, but let's check to see if the previous action was done by the same player
         // this is to prevent a player being deleted from the sequence and then having new actions attributed to a previous player instead
-        int last_action_index = [self.actionSequence.sequence count]-1;
+        NSInteger last_action_index = [self.actionSequence.sequence count]-1;
         SACAction *lastAction = [self.actionSequence.sequence objectAtIndex:last_action_index];
         if(lastAction.playerIndex != currentPlayerIndex) {
             // add the current player as an Action
@@ -237,15 +237,15 @@
     
     [self.actionSequence addAction:action];
     // how many actions are there?
-    int num_actions = [self.actionSequence.sequence count]-1;
+    NSInteger num_actions = [self.actionSequence.sequence count]-1;
     [self showAction:action atPosition:num_actions];
     [self showOdds];
 }
 
 - (void) showAction:(SACAction *) action atPosition:(int)pos {
     // show the action in the interface
-    int row;
-    int col;
+    NSInteger row;
+    NSInteger col;
     float y;
     float x;
     float btnWidth;
@@ -313,7 +313,7 @@
     }
     
     [myBtn setBackgroundColor:myColor];
-    int tag = pos+1;
+    NSInteger tag = pos+1;
     [myBtn setTag:tag];
     
     UIGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]
@@ -337,25 +337,25 @@
 
 - (IBAction)removePlayerAction:(UITapGestureRecognizer*)recognizer {
     if(UIGestureRecognizerStateBegan == recognizer.state) {
-        int aIndex = recognizer.view.tag-1;
+        NSInteger aIndex = recognizer.view.tag-1;
         [self removePlayer:aIndex];
     }
 }
 
 - (void)removePlayer:(int)actionIndex {
-    //int actionIndex = sender.tag-1;
-    int rows;
+    //NSInteger actionIndex = sender.tag-1;
+    NSInteger rows;
     //NSLog(@"Remove action at index %d", actionIndex);
     
     SACAction *removedAction = [self.actionSequence.sequence objectAtIndex:actionIndex];
     if(removedAction.isNewPlayer) {
         // this is a new player, so we need to remove all of the subsequent associated Actions
-        int nextIndex = actionIndex+1;
-        int pIndex = removedAction.playerIndex;
+        NSInteger nextIndex = actionIndex+1;
+        NSInteger pIndex = removedAction.playerIndex;
         
         while(nextIndex < [self.actionSequence.sequence count]) {
             SACAction *deletedAction = [self.actionSequence.sequence objectAtIndex:nextIndex];
-            int p2Index = deletedAction.playerIndex;
+            NSInteger p2Index = deletedAction.playerIndex;
             if(pIndex == p2Index) {
                 //delete as this belongs to the same player
                 [self.actionSequence removeAction:nextIndex];
@@ -371,7 +371,7 @@
     
     [self.actionSequence removeAction:actionIndex];
     removedAction = nil;
-    int num_actions = [self.actionSequence.sequence count];
+    NSInteger num_actions = [self.actionSequence.sequence count];
     
     // remove all of the action views
     for(UIView *subview in [skillsView subviews]) {
@@ -388,7 +388,7 @@
     [self adjustViewHeight:rows];
     
     // add the action views back again
-    for(int i = 0; i < num_actions; i++) {
+    for(NSInteger i = 0; i < num_actions; i++) {
         SACAction *action = [self.actionSequence.sequence objectAtIndex:i];
         [self showAction:action atPosition:i];
     }
@@ -398,7 +398,7 @@
 
 - (IBAction)togglePro:(UIButton*)sender {
     // switches Pro on or Off for an Action
-    int actionIndex = sender.tag-1;
+    NSInteger actionIndex = sender.tag-1;
     SACAction *selAction = [self.actionSequence.sequence objectAtIndex:actionIndex];
     if(selAction.hasPro && !selAction.isNewPlayer) {
         // Pro is available for this Action
@@ -435,7 +435,7 @@
     
     // reset the skills view container and the view below if necessary
     CGRect frame = [skillsView frame];
-    int curr_height = frame.size.height;
+    NSInteger curr_height = frame.size.height;
     if(curr_height > 97) {
         [self adjustViewHeight:0];
     }
@@ -457,12 +457,12 @@
     // adjust the view port height
     CGRect frame = [skillsView frame];
     CGRect probaFrame = [probaView frame];
-    int extra_height;
+    NSInteger extra_height;
     //NSLog(@"Adjust view for %d rows", actionRows);
     
     if(actionRows > 1) {
         // calculate the View settings
-        int extra_rows = actionRows-1;
+        NSInteger extra_rows = actionRows-1;
         extra_height = (50*extra_rows);
     } else {
         // set the View to the default size and position
@@ -477,7 +477,7 @@
         probaFrame.origin.y = 1020 + extra_height;
         [probaView setFrame:probaFrame];
         
-        int scroll_height = 1500 + extra_height;
+        NSInteger scroll_height = 1500 + extra_height;
         self.scrollView.contentSize = CGSizeMake(768, scroll_height);
     }
     else {
@@ -489,7 +489,7 @@
         probaFrame.origin.y = 150 + extra_height;
         [probaView setFrame:probaFrame];
         
-        int panelHeight = 0;
+        NSInteger panelHeight = 0;
         if(isopen) {
             // Action Panel is Open, so we need to factor in the extra height
             switch (activeButton) {
@@ -507,7 +507,7 @@
                 break;
             }
         }
-        int scroll_height = 1000 + extra_height + panelHeight;
+        NSInteger scroll_height = 1000 + extra_height + panelHeight;
         self.scrollView.contentSize = CGSizeMake(320, scroll_height);
     }
 
@@ -736,15 +736,15 @@
     else {
         // Panel stays closed
         isopen = NO;
-        int num_actions = [self.actionSequence.sequence count];
-        int rows = (num_actions < 4) ? 0:roundf(num_actions/3);
+        NSInteger num_actions = [self.actionSequence.sequence count];
+        NSInteger rows = (num_actions < 4) ? 0:roundf(num_actions/3);
         [self adjustViewHeight:rows];
     }
 }
 
 - (void)adjustPhoneHeight {
-    int num_actions = [self.actionSequence.sequence count];
-    int rows = (num_actions < 4) ? 0:roundf(num_actions/3);
+    NSInteger num_actions = [self.actionSequence.sequence count];
+    NSInteger rows = (num_actions < 4) ? 0:roundf(num_actions/3);
     [self adjustViewHeight:rows];
 }
 

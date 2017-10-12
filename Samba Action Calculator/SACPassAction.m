@@ -71,7 +71,7 @@
     NSMutableString *desc = [[NSMutableString alloc] init];
     [desc appendFormat:@"%d+ Pass", self.min_roll];
     if(interception > 0) {
-        [desc appendFormat:@" (int %d+", interception];
+        [desc appendFormat:@" (NSInteger %d+", interception];
         if(withPro) [desc appendFormat:@",p"];
         if(withCatch) [desc appendFormat:@",c"];
         [desc appendFormat:@")"];

@@ -23,8 +23,8 @@
     if(self) {
         numSuccess = sa;
         // how many block dice are successful results?
-        int numSuccDice = 0;
-        for (int i=0; i<5; i++) {
+        NSInteger numSuccDice = 0;
+        for (NSInteger i=0; i<5; i++) {
             //NSLog(@"Dice %d: %@", i, numSuccess[i]);
             BOOL isSuccess = [numSuccess[i] boolValue];
             if (i == 2 && isSuccess) {
@@ -76,7 +76,7 @@
 - (NSMutableString*) getDiceDescription {
     NSMutableString *diceDesc = [[NSMutableString alloc] init];
     BOOL haveDice = 0;
-    for(int i=0; i < [numSuccess count]; i++) {
+    for(NSInteger i=0; i < [numSuccess count]; i++) {
         BOOL isActive = [numSuccess[i] boolValue];
         if(isActive) {
             haveDice ? [diceDesc appendFormat:@", %@", blockDice[i]]:[diceDesc appendFormat:@"%@", blockDice[i]];
