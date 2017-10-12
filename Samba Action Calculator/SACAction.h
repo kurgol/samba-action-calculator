@@ -21,7 +21,7 @@
 @property BOOL isLoner;
 @property BOOL isNewPlayer;
 @property (nonatomic, weak) NSString *playerName;
-@property int playerIndex;
+@property NSInteger playerIndex;
 
 - (id)initWithValues:(NSInteger)at
              minRoll:(NSInteger)mn

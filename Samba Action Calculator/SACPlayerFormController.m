@@ -25,7 +25,7 @@
     //NSLog(@"Accion boton");
     
     // Reassign the first responder of any field
-    for(int i=0; i<[[self.view subviews] count]; i++) {
+    for(NSInteger i=0; i<[[self.view subviews] count]; i++) {
         id elemento = [[self.view subviews] objectAtIndex:i];
         if([elemento respondsToSelector:@selector(resignFirstResponder)]) {
             [elemento resignFirstResponder];
