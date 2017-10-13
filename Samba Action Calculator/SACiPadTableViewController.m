@@ -79,7 +79,7 @@
     } else {
         // normal dynamic logic here
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-        int arrIndex = indexPath.row - 1;
+        NSInteger arrIndex = indexPath.row - 1;
         [cell.textLabel setText:[[_appDelegate.players objectAtIndex:arrIndex] showFullTableDesc]];
         return cell;
     }
@@ -112,7 +112,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        int arrIndex = indexPath.row - 1;
+        NSInteger arrIndex = indexPath.row - 1;
         [_appDelegate deletePlayer:arrIndex];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -125,7 +125,7 @@
 {
     if([segue.destinationViewController isKindOfClass:[SACSequenceViewController class]]) {
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-        int arrIndex = path.row - 1;
+        NSInteger arrIndex = path.row - 1;
         //NSLog(@"player index: %d", arrIndex);
         [segue.destinationViewController activatePlayer:arrIndex];
     }

@@ -22,7 +22,7 @@
     [[self players] addObject:player];
 }
 
--(void)deletePlayer:(int)playerIndex {
+-(void)deletePlayer:(NSInteger)playerIndex {
     // remove the player from the array
     [[self players] removeObjectAtIndex:playerIndex];
 }

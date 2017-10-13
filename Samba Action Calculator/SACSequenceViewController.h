@@ -15,7 +15,7 @@
 
 // Data Objects
 @property (nonatomic, weak) SACPlayer *activePlayer;
-@property int currentPlayerIndex;
+@property NSInteger currentPlayerIndex;
 @property (nonatomic, strong) SACFullSequence *actionSequence;
 
 // Views
@@ -41,8 +41,8 @@
 
 // Misc properties
 @property BOOL isopen;
-@property int activeButton;
-@property int prevButton;
+@property NSInteger activeButton;
+@property NSInteger prevButton;
 @property (nonatomic, strong) UIViewController *changePlayerVC;
 
 - (void)activatePlayer:(int)playerIndex;
