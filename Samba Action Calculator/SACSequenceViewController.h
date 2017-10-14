@@ -45,15 +45,15 @@
 @property NSInteger prevButton;
 @property (nonatomic, strong) UIViewController *changePlayerVC;
 
-- (void)activatePlayer:(int)playerIndex;
+- (void)activatePlayer:(NSInteger)playerIndex;
 
 - (IBAction)addPlayerAction:(UIButton*)sender;
 
-- (void)showAction:(SACAction *)action atPosition:(int)pos;
+- (void)showAction:(SACAction *)action atPosition:(NSInteger)pos;
 
 - (IBAction)removePlayerAction:(UITapGestureRecognizer*)recognizer;
 
-- (void)removePlayer:(int)actionIndex;
+- (void)removePlayer:(NSInteger)actionIndex;
 
 - (IBAction)togglePro:(UIButton*)sender;
 
@@ -61,7 +61,7 @@
 
 - (void)showOdds;
 
-- (void)adjustViewHeight:(int)actionRows;
+- (void)adjustViewHeight:(NSInteger)actionRows;
 
 - (IBAction)slidePhoneInterface:(UIButton*)sender;
 

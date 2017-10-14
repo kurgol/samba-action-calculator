@@ -15,7 +15,7 @@
 - (id)initWithValues:(NSInteger)at
              minRoll:(NSInteger)mn
            forPlayer:(SACPlayer *)player
-             atIndex:(int)index {
+             atIndex:(NSInteger)index {
     // Call the NSObject's init method
     self = [super init];
     
@@ -88,7 +88,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<Stored Action of type: %d with a min. roll of %d>", action_type, min_roll];
+    return [NSString stringWithFormat:@"<Stored Action of type: %ld with a min. roll of %ld>", (long)action_type, (long)min_roll];
 }
 
 - (NSMutableString *)interfaceText {
@@ -96,23 +96,23 @@
     switch (action_type) {
         case 1:
             // Dodge Action
-            [desc appendFormat:@"%d+ Dodge", min_roll];
+            [desc appendFormat:@"%ld+ Dodge", (long)min_roll];
         break;
         case 2:
             // Pick up Action
-            [desc appendFormat:@"%d+ Pick up", min_roll];
+            [desc appendFormat:@"%ld+ Pick up", min_roll];
         break;
         case 3:
             // GFI Action
-            [desc appendFormat:@"%d+ GFI", min_roll];
+            [desc appendFormat:@"%ld+ GFI", min_roll];
         break;
         case 4:
             // Pass Action
-            [desc appendFormat:@"%d+ Pass", min_roll];
+            [desc appendFormat:@"%ld+ Pass", min_roll];
         break;
         case 5:
             // Catch Action
-            [desc appendFormat:@"%d+ Catch", min_roll];
+            [desc appendFormat:@"%ld+ Catch", min_roll];
         break;
         case 6:
             // Block Action
@@ -120,7 +120,7 @@
         break;
         default:
             // Generic Action
-            [desc appendFormat:@"%d+ Action", min_roll];
+            [desc appendFormat:@"%ld+ Action", min_roll];
         break;
     }
     if(hasPro) [desc appendFormat:@"*"];

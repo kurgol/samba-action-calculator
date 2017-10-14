@@ -15,12 +15,12 @@
 - (id)initWithValues:(NSInteger)at
              minRoll:(NSInteger)mn
            forPlayer:(SACPlayer *)player
-             atIndex:(int)index
+             atIndex:(NSInteger)index
         canIntercept:(NSInteger)i
               hasPro:(BOOL)p
             hasCatch:(BOOL)c {
     // Call the superclass's initializer
-    self = [super initWithValues:at minRoll:mn forPlayer:player atIndex:(int)index];
+    self = [super initWithValues:at minRoll:mn forPlayer:player atIndex:index];
     
     if(self) {
         // Add the pass params
@@ -64,14 +64,14 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<Stored Pass Action of type: %d with a min. roll of %d. Can be intercepted: (%d) with Pro (%s) and Catch (%s)>", [self action_type], [self min_roll], [self interception], [self withPro] ? "true" : "false", [self withCatch] ? "true" : "false"];
+    return [NSString stringWithFormat:@"<Stored Pass Action of type: %ld with a min. roll of %ld. Can be intercepted: (%ld) with Pro (%s) and Catch (%s)>", (long)[self action_type], (long)[self min_roll], (long)[self interception], [self withPro] ? "true" : "false", [self withCatch] ? "true" : "false"];
 }
 
 - (NSMutableString *)interfaceText {
     NSMutableString *desc = [[NSMutableString alloc] init];
-    [desc appendFormat:@"%d+ Pass", self.min_roll];
+    [desc appendFormat:@"%ld+ Pass", (long)self.min_roll];
     if(interception > 0) {
-        [desc appendFormat:@" (NSInteger %d+", interception];
+        [desc appendFormat:@" (NSInteger %ld+", (long)interception];
         if(withPro) [desc appendFormat:@",p"];
         if(withCatch) [desc appendFormat:@",c"];
         [desc appendFormat:@")"];

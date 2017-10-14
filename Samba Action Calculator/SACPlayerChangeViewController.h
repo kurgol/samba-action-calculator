@@ -12,7 +12,7 @@
 @protocol sendNewActivePlayer <NSObject>
 @required
 
-- (void)changeActivePlayer:(int)playerIndex;
+- (void)changeActivePlayer:(NSInteger)playerIndex;
 
 @end
 

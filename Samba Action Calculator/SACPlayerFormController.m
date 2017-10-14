@@ -35,7 +35,7 @@
 }
 
 - (IBAction)cancelPlayerSave:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)savePlayer:(id)sender {
@@ -88,7 +88,7 @@
         [lonerSwitch setOn:0];
         
         // Close the view
-        [self dismissModalViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:NULL];
     }
 }
 

@@ -15,10 +15,10 @@
 - (id)initWithValues:(NSInteger)at
              minRoll:(NSInteger)mn
            forPlayer:(SACPlayer *)player
-             atIndex:(int)index
+             atIndex:(NSInteger)index
           successArr:(NSArray*)sa {
     // Call the superclass's initializer
-    self = [super initWithValues:at minRoll:mn forPlayer:player atIndex:(int)index];
+    self = [super initWithValues:at minRoll:mn forPlayer:player atIndex:index];
     
     if(self) {
         numSuccess = sa;
@@ -89,12 +89,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<Stored Block Action of type: %d with %d dice. Successful with %@>", [self action_type], [self numDice], [self getDiceDescription]];
+    return [NSString stringWithFormat:@"<Stored Block Action of type: %ld with %ld dice. Successful with %@>", (long)[self action_type], (long)[self numDice], [self getDiceDescription]];
 }
 
 - (NSMutableString *)interfaceText {
     NSMutableString *desc = [[NSMutableString alloc] init];
-    [desc appendFormat:@"%dd Block", self.numDice];
+    [desc appendFormat:@"%ldd Block", (long)self.numDice];
     if(self.hasPro) [desc appendFormat:@"*"];
     return desc;
 }
