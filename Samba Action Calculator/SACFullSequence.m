@@ -40,7 +40,7 @@
      */
 }
 
-- (void) removeAction:(int) index {
+- (void) removeAction:(NSInteger) index {
     // remove the action from the array
     [sequence removeObjectAtIndex:index];
 }
@@ -53,7 +53,7 @@
     return [self getProbaAction:0 teamRR:teamRerollLeft dodgeRR:YES sfRR:YES proRR:YES];
 }
 
-- (float) getProbaAction:(int)n
+- (float) getProbaAction:(NSInteger)n
                   teamRR:(BOOL)trLeft
                  dodgeRR:(BOOL)drLeft
                     sfRR:(BOOL)sfrLeft

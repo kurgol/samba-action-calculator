@@ -19,7 +19,7 @@
 
 @synthesize activePlayer, currentPlayerIndex, actionSequence, scrollView, nameLabel, skillsLabel, noRRLabel, yesRRLabel, interceptSeg, usePro, useCatch, blockSeg, skillsView, probaView, phoneBottomContainer, isopen, phoneSlideOutView, phoneActionBtn, phoneSeg, activeButton, prevButton, changePlayerVC;
 
-- (void)activatePlayer:(int)playerIndex {
+- (void)activatePlayer:(NSInteger)playerIndex {
     _appDelegate = [SACAppDelegate sharedAppDelegate];
     self.activePlayer = [_appDelegate.players objectAtIndex:playerIndex];
     currentPlayerIndex = playerIndex;
@@ -32,7 +32,7 @@
     }
 }
 
-- (void)changeActivePlayer:(int)playerIndex {
+- (void)changeActivePlayer:(NSInteger)playerIndex {
     // first we need to check if the player has changed at all
     if(playerIndex != currentPlayerIndex) {
         [self activatePlayer:playerIndex];
@@ -49,7 +49,7 @@
             [self.skillsLabel sizeToFit];
         }
     }
-    [changePlayerVC dismissModalViewControllerAnimated:YES];
+    [changePlayerVC dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)addPlayerAction:(UIButton*)sender {
@@ -242,7 +242,7 @@
     [self showOdds];
 }
 
-- (void) showAction:(SACAction *) action atPosition:(int)pos {
+- (void) showAction:(SACAction *) action atPosition:(NSInteger)pos {
     // show the action in the interface
     NSInteger row;
     NSInteger col;
@@ -342,7 +342,7 @@
     }
 }
 
-- (void)removePlayer:(int)actionIndex {
+- (void)removePlayer:(NSInteger)actionIndex {
     //NSInteger actionIndex = sender.tag-1;
     NSInteger rows;
     //NSLog(@"Remove action at index %d", actionIndex);
@@ -453,7 +453,7 @@
     self.yesRRLabel.text = [NSString stringWithFormat:@"%.3f%%", probYesrr];
 }
 
-- (void) adjustViewHeight:(int)actionRows {
+- (void) adjustViewHeight:(NSInteger)actionRows {
     // adjust the view port height
     CGRect frame = [skillsView frame];
     CGRect probaFrame = [probaView frame];

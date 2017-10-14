@@ -19,13 +19,13 @@
 
 - (void) addAction:(SACAction *) action;
 
-- (void) removeAction:(int) index;
+- (void) removeAction:(NSInteger) index;
 
 - (void) clearActions;
 
 - (float) getProbaReroll:(BOOL)teamRerollLeft;
 
-- (float) getProbaAction:(int)n
+- (float) getProbaAction:(NSInteger)n
                   teamRR:(BOOL)trLeft
                  dodgeRR:(BOOL)drLeft
                     sfRR:(BOOL)sfrLeft

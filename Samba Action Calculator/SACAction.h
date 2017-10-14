@@ -26,7 +26,7 @@
 - (id)initWithValues:(NSInteger)at
              minRoll:(NSInteger)mn
            forPlayer:(SACPlayer *)player
-             atIndex:(int)index;
+             atIndex:(NSInteger)index;
 
 - (NSMutableString *)interfaceText;
 

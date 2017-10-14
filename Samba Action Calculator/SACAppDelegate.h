@@ -17,6 +17,6 @@
 + (SACAppDelegate *)sharedAppDelegate;
 
 - (void)savePlayer:(SACPlayer *)player;
-- (void)deletePlayer:(int)playerIndex;
+- (void)deletePlayer:(NSInteger)playerIndex;
 
 @end
