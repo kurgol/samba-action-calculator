@@ -3,3 +3,5 @@ This repository is for the iOS version of Samba Action Calculator, based on the 
 Initially, the intention is to get the tool resubmitted to the app store so that it's available again - requires updating to 64 bit, changing min target to Xcode 8, min iOS target 8 (from 5.5.1). The current project dumps a ton of errors in Xcode and obviously Apple's minimum requirements for iOS apps has changed significantly.
 
 Longer-term goals include refactoring the interface to make it more easy to use and generally modernizing the app and potentially an Android release.
+
+This project has now been passed back to the original author Elyoukey.
